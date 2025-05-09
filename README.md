@@ -11,7 +11,8 @@ There are two model architectures explored for this task:
 - An **encoder-only** model (fine-tuned BERT)
 - A **decoder-only** model (in-context learning with GPT)
 
-- 1. Encoder-Only Model
+
+1. Encoder-Only Model
 bert-base-cased from Hugging Face
 
 Fine-tuned separately on:
