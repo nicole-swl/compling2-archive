@@ -13,7 +13,7 @@ There are two model architectures explored for this task:
 
 # Models
 
-1. Encoder-Only Model: BERT (Fine-Tuned)
+**1. Encoder-Only Model: BERT (Fine-Tuned)**
 
 The encoder-only model used is BERT (bert-base-cased) from Hugging Face, fine-tuned for NER tasks. The model was fine-tuned separately both tagsets.
 
@@ -22,7 +22,7 @@ The encoder-only model used is BERT (bert-base-cased) from Hugging Face, fine-tu
 - Fine-tuned for NER
 - Utilizes a classification head to predict BIO labels for each token
 
-2. Decoder-Only Model: LLaMA-3.1-8B-Instruct (In-Context Learning)
+**2. Decoder-Only Model: LLaMA-3.1-8B-Instruct (In-Context Learning)**
    
 The second model evaluated is LLaMA-3.1-8B-Instruct, a decoder-only model deployed locally in an 8-bit quantized form to manage memory usage. Instead of fine-tuning, this model uses few-shot in-context learning to perform NER tasks.
 
