@@ -86,15 +86,6 @@ print(training_data[0])
 
 !pip install -U bitsandbytes
 
-import bitsandbytes as bnb
-print(bnb.__version__)
-
-!pip uninstall -y bitsandbytes
-!pip install bitsandbytes --no-cache-dir --force-reinstall --upgrade
-
-!pip install torchvision
-!pip install torch
-
 import torch
 from torch import nn
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
