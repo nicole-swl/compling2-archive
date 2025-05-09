@@ -11,23 +11,52 @@ There are two model architectures explored for this task:
 - An **encoder-only** model (fine-tuned BERT)
 - A **decoder-only** model (in-context learning with GPT)
 
+# Models
 
-1. Encoder-Only Model
-bert-base-cased from Hugging Face
+1. Encoder-Only Model: BERT (Fine-Tuned)
+The encoder-only model used is BERT (bert-base-cased) from Hugging Face, fine-tuned for NER tasks. The model was fine-tuned separately on the following tagsets:
 
-Fine-tuned separately on:
+Full tagset (7 BIO labels)
 
-Full tagset (7 labels)
+Simplified tagset (3 BIO labels)
 
-Simplified tagset (3 labels)
+Model Details:
+- Pre-trained model: bert-base-cased
+- Fine-tuned for NER
+- Utilizes a classification head to predict BIO labels for each token
 
-2. Decoder-Only Model
-LLaMA-3.1-8B-Instruct, deployed locally in 8-bit quantized form
+2. Decoder-Only Model: LLaMA-3.1-8B-Instruct (In-Context Learning)
+The second model evaluated is LLaMA-3.1-8B-Instruct, a decoder-only model deployed locally in an 8-bit quantized form to manage memory usage. Instead of fine-tuning, this model uses few-shot in-context learning to perform NER tasks.
 
-Uses few-shot in-context learning:
+Model Details:
+Model: LLaMA-3.1-8B-Instruct
 
-Construct prompts with examples + a new sentence
+Approach: Few-shot in-context learning
 
-Model generates BIO labels token-by-token
+Generation Method: Model generates BIO labels token-by-token based on provided examples and a new input sentence.
 
 
+# Repository Structure 
+
+The repository contains the following files:
+
+encoder_only.py: Code for training and evaluating the fine-tuned BERT model, with the full tagset.
+
+encoder_only_simplified.py: Code for training and evaluating the fine-tuned BERT model, with the simplified tagset.
+
+decoder_only.py: Code for running in-context learning with the LLaMA decoder model, with the full tagset.
+
+decoder_only_simplified.py: Code for running in-context learning with the LLaMA decoder model, with the simplified tagset.
+
+README.md: This file.
+
+
+# Evaluation Metrics
+
+The models are evaluated on the following metrics:
+
+Labelled Span-Matching Score: Measures how accurately the model identifies entity spans.
+
+Unlabelled Span-Matching Score: Measures how accurately the model identifies entity spans without considering entity type.
+
+Precision, Recall, and F1 Scores: Computed per label and averaged across all labels (macro average).
