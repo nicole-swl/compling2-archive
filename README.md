@@ -21,7 +21,7 @@ Full tagset (7 labels)
 Simplified tagset (3 labels)
 
 2. Decoder-Only Model
-gpt-3.5-turbo via OpenAI API
+LLaMA-3.1-8B-Instruct, deployed locally in 8-bit quantized form
 
 Uses few-shot in-context learning:
 
@@ -30,25 +30,3 @@ Construct prompts with examples + a new sentence
 Model generates BIO labels token-by-token
 
 
-ner-project/
-├── README.md
-├── requirements.txt
-├── utils/
-│ ├── simplify_labels.py
-│ ├── metrics.py
-│
-├── encoder_only_bert/
-│ ├── train_full.py
-│ ├── train_simplified.py
-│ ├── eval_full.py
-│ ├── eval_simplified.py
-│
-├── decoder_only_gpt/
-│ ├── prompt_utils.py
-│ ├── run_full_prompt.py
-│ ├── run_simplified_prompt.py
-│
-├── outputs/
-│ ├── predictions_full.csv
-│ ├── predictions_simplified.csv
-│ └── eval_results.json
